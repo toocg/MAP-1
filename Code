@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+map<string,int>cnt;                                      //khai bao map
+string n,tu;
+bool dx(string n){
+for(int a=0;a<n.size();a++){
+    if(n[a]!=n[n.size()-1-a]){
+        return false;
+    }
+}
+return true;
+}
+int d1=0,d2=0;
+main(){
+ios_base::sync_with_stdio(false);
+cin.tie(0);
+cout.tie(0);
+getline(cin,n);
+stringstream ss(n);
+while(ss>>tu){
+    cnt[tu]++;
+    if(dx(tu)==true){
+        d1++;
+    }
+}
+for(auto it:cnt){                                         // auto la kieu du lieu giong int; it la bien dem de chay tren mang cnt
+    if(it.second==1){                                     // second la so lan xuat hien va int la #second khi khai bao map
+        d2++;
+    }
+}
+cout << d2 << "\n" << d1;
+}
